@@ -12,6 +12,8 @@ namespace hr_console_production.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            Log.Logger.Information("Get all products");
+
             using (var ctx = new Models.awvmsqldbContext())
             {
                 var products = ctx.Products.Select(p => new
@@ -37,6 +39,7 @@ namespace hr_console_production.Controllers
 
             if(product == null)
             {
+                Log.Logger.Information($"{id} not found.");
                 return NotFound();
             }
 
@@ -62,6 +65,7 @@ namespace hr_console_production.Controllers
 
             if(product == null)
             {
+                Log.Logger.Information($"{id} not found.");
                 return NotFound();
             }
 

@@ -39,7 +39,7 @@ namespace hr_console_production.Controllers
 
             if(product == null)
             {
-                Log.Logger.Information($"{id} not found.");
+                Log.Logger.Information($"Product with id {id} not found.");
                 return NotFound();
             }
 

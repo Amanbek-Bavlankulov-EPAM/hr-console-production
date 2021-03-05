@@ -80,7 +80,7 @@ namespace hr_console_production.Controllers
         {
             try
             {
-                throw new NotImplementedException();
+                throw new NotImplementedException("Expected exception.");
             }
             catch(Exception ex)
             {

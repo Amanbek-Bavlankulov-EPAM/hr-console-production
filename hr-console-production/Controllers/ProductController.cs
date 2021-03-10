@@ -2,7 +2,6 @@
 using System.Linq;
 using Serilog;
 using System;
-using Microsoft.Extensions.Logging;
 using hr_console_production.Models;
 using Newtonsoft.Json;
 
@@ -12,17 +11,17 @@ namespace hr_console_production.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly ILogger<ProductController> logger;
+        private readonly ILogger _logger;
 
-        public ProductController(ILogger<ProductController> logger)
+        public ProductController(ILogger logger)
         {
-            this.logger = logger;
+            this._logger = logger.ForContext<ProductController>();
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            logger.LogInformation("Get all products");
+            _logger.Information("Get all products");
 
             using (var ctx = new Models.awvmsqldbContext())
             {
@@ -45,14 +44,14 @@ namespace hr_console_production.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            logger.LogInformation($"Get product by id {id}.");
+            _logger.Information($"Get product by id {id}.");
 
             using var ctx = new Models.awvmsqldbContext();
             var product = ctx.Products.SingleOrDefault(p => p.ProductId == id);
 
             if(product == null)
             {
-                logger.LogInformation($"Product with id {id} not found.");
+                _logger.Information($"Product with id {id} not found.");
                 return NotFound();
             }
 
@@ -74,14 +73,14 @@ namespace hr_console_production.Controllers
         [HttpGet("GetByName/{name}")]
         public IActionResult Get(string name)
         {
-            logger.LogInformation($"Get product by name {name}.");
+            _logger.Information($"Get product by name {name}.");
 
             using var ctx = new Models.awvmsqldbContext();
             var product = ctx.Products.SingleOrDefault(p => p.Name == name);
 
             if (product == null)
             {
-                logger.LogInformation($"Product with name {name} not found.");
+                _logger.Information($"Product with name {name} not found.");
                 return NotFound();
             }
 
@@ -103,14 +102,14 @@ namespace hr_console_production.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            logger.LogInformation($"Delete product by id {id}.");
+            _logger.Information($"Delete product by id {id}.");
 
             using var ctx = new Models.awvmsqldbContext();
             var product = ctx.Products.SingleOrDefault(p => p.ProductId == id);
 
             if(product == null)
             {
-                logger.LogInformation($"{id} not found.");
+                _logger.Information($"{id} not found.");
                 return NotFound();
             }
 
@@ -123,7 +122,7 @@ namespace hr_console_production.Controllers
         [HttpPut]
         public void Put(int id, ProductDto product)
         {
-            logger.LogInformation($"Update product by id {id}.");
+            _logger.Information($"Update product by id {id}.");
 
             using var ctx = new Models.awvmsqldbContext();
             var saved = ctx.Products.SingleOrDefault(p => p.ProductId == id);
@@ -136,7 +135,7 @@ namespace hr_console_production.Controllers
         [HttpPost]
         public void Post([FromBody] ProductDto value)
         {
-            logger.LogInformation($"Post product {JsonConvert.SerializeObject(value)}.");
+            _logger.Information($"Post product {JsonConvert.SerializeObject(value)}.");
 
             using var ctx = new awvmsqldbContext();
             var product = new Product
@@ -156,7 +155,7 @@ namespace hr_console_production.Controllers
         [HttpGet("GetException")]
         public IActionResult GetException()
         {
-            logger.LogInformation("Throw exception.");
+            _logger.Information("Throw exception.");
             throw new NotImplementedException();
         }
     }

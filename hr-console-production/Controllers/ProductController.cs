@@ -2,6 +2,9 @@
 using System.Linq;
 using Serilog;
 using System;
+using Microsoft.Extensions.Logging;
+using hr_console_production.Models;
+using Newtonsoft.Json;
 
 namespace hr_console_production.Controllers
 {
@@ -9,10 +12,17 @@ namespace hr_console_production.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
+        private readonly ILogger<ProductController> logger;
+
+        public ProductController(ILogger<ProductController> logger)
+        {
+            this.logger = logger;
+        }
+
         [HttpGet]
         public IActionResult Get()
         {
-            Log.Logger.Information("Get all products");
+            logger.LogInformation("Get all products");
 
             using (var ctx = new Models.awvmsqldbContext())
             {
@@ -24,7 +34,8 @@ namespace hr_console_production.Controllers
                     sellEndDate = p.SellEndDate,
                     sellStartDate = p.SellStartDate,
                     listPrice = p.ListPrice,
-                    weight = p.Weight
+                    weight = p.Weight,
+                    size = p.Size
                 }).ToArray();
 
                 return Ok(products);
@@ -34,12 +45,14 @@ namespace hr_console_production.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
+            logger.LogInformation($"Get product by id {id}.");
+
             using var ctx = new Models.awvmsqldbContext();
             var product = ctx.Products.SingleOrDefault(p => p.ProductId == id);
 
             if(product == null)
             {
-                Log.Logger.Information($"Product with id {id} not found.");
+                logger.LogInformation($"Product with id {id} not found.");
                 return NotFound();
             }
 
@@ -51,7 +64,37 @@ namespace hr_console_production.Controllers
                 sellEndDate = product.SellEndDate,
                 sellStartDate = product.SellStartDate,
                 listPrice = product.ListPrice,
-                weight = product.Weight
+                weight = product.Weight,
+                size = product.Size
+            };
+
+            return Ok(mapped);
+        }
+
+        [HttpGet("GetByName/{name}")]
+        public IActionResult Get(string name)
+        {
+            logger.LogInformation($"Get product by name {name}.");
+
+            using var ctx = new Models.awvmsqldbContext();
+            var product = ctx.Products.SingleOrDefault(p => p.Name == name);
+
+            if (product == null)
+            {
+                logger.LogInformation($"Product with name {name} not found.");
+                return NotFound();
+            }
+
+            var mapped = new
+            {
+                productId = product.ProductId,
+                name = product.Name,
+                productNumber = product.ProductNumber,
+                sellEndDate = product.SellEndDate,
+                sellStartDate = product.SellStartDate,
+                listPrice = product.ListPrice,
+                weight = product.Weight,
+                size = product.Size
             };
 
             return Ok(mapped);
@@ -60,12 +103,14 @@ namespace hr_console_production.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            logger.LogInformation($"Delete product by id {id}.");
+
             using var ctx = new Models.awvmsqldbContext();
             var product = ctx.Products.SingleOrDefault(p => p.ProductId == id);
 
             if(product == null)
             {
-                Log.Logger.Information($"{id} not found.");
+                logger.LogInformation($"{id} not found.");
                 return NotFound();
             }
 
@@ -76,16 +121,43 @@ namespace hr_console_production.Controllers
         }
 
         [HttpPut]
-        public void Put(int id)
+        public void Put(int id, ProductDto product)
         {
-            try
+            logger.LogInformation($"Update product by id {id}.");
+
+            using var ctx = new Models.awvmsqldbContext();
+            var saved = ctx.Products.SingleOrDefault(p => p.ProductId == id);
+            saved.Name = product.Name;
+            saved.Size = product.Size;
+
+            ctx.SaveChanges();
+        }
+
+        [HttpPost]
+        public void Post([FromBody] ProductDto value)
+        {
+            logger.LogInformation($"Post product {JsonConvert.SerializeObject(value)}.");
+
+            using var ctx = new awvmsqldbContext();
+            var product = new Product
             {
-                throw new NotImplementedException("Expected exception.");
-            }
-            catch(Exception ex)
-            {
-                Log.Logger.Error("Exception: " + ex.Message);
-            }
+                Name = value.Name,
+                Size = value.Size,
+                SellStartDate = DateTime.Now,
+                SellEndDate = DateTime.Now,
+                ProductNumber = "1",
+                ReorderPoint = 750,
+                SafetyStockLevel = 1000
+            };
+            ctx.Add(product);
+            ctx.SaveChanges();
+        }
+
+        [HttpGet]
+        public IActionResult GetException()
+        {
+            logger.LogInformation("Throw exception.");
+            throw new NotImplementedException();
         }
     }
 }

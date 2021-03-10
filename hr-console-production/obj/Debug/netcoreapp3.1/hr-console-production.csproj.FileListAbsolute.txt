@@ -92,3 +92,6 @@ C:\Develop\Azure Mentoring\hr-console-production\hr-console-production\bin\Debug
 C:\Develop\Azure Mentoring\hr-console-production\hr-console-production\bin\Debug\netcoreapp3.1\Serilog.Sinks.Console.dll
 C:\Develop\Azure Mentoring\hr-console-production\hr-console-production\bin\Debug\netcoreapp3.1\Serilog.Sinks.Debug.dll
 C:\Develop\Azure Mentoring\hr-console-production\hr-console-production\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
+C:\Develop\Azure Mentoring\hr-console-production\hr-console-production\bin\Debug\netcoreapp3.1\Microsoft.ApplicationInsights.dll
+C:\Develop\Azure Mentoring\hr-console-production\hr-console-production\bin\Debug\netcoreapp3.1\Serilog.Sinks.ApplicationInsights.dll
+C:\Develop\Azure Mentoring\hr-console-production\hr-console-production\bin\Debug\netcoreapp3.1\Serilog.Sinks.RollingFile.dll

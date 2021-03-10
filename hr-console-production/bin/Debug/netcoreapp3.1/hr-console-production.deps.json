@@ -31,8 +31,10 @@
           "Serilog": "2.10.0",
           "Serilog.AspNetCore": "4.0.0",
           "Serilog.Extensions.Logging": "3.0.1",
+          "Serilog.Sinks.ApplicationInsights": "3.1.0",
           "Serilog.Sinks.AzureApp": "3.1.0",
           "Serilog.Sinks.Console": "3.1.1",
+          "Serilog.Sinks.RollingFile": "3.3.0",
           "Swashbuckle.AspNetCore.Swagger": "6.0.7",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.0.7",
           "Swashbuckle.AspNetCore.SwaggerUI": "6.0.7",
@@ -309,6 +311,21 @@
             "assemblyVersion": "2.8.0.0",
             "fileVersion": "2.8.26.1919"
           }
+        }
+      },
+      "Microsoft.ApplicationInsights/2.12.0": {
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "5.0.1",
+          "System.Runtime.InteropServices": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.ApplicationInsights.dll": {
+            "assemblyVersion": "2.12.0.21496",
+            "fileVersion": "2.12.0.21496"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.ApplicationInsights.dll": {}
         }
       },
       "Microsoft.AspNetCore.Hosting.Abstractions/2.2.0": {
@@ -1224,6 +1241,21 @@
           "lib/netstandard2.0/Serilog.Settings.Configuration.dll": {}
         }
       },
+      "Serilog.Sinks.ApplicationInsights/3.1.0": {
+        "dependencies": {
+          "Microsoft.ApplicationInsights": "2.12.0",
+          "Serilog": "2.10.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Sinks.ApplicationInsights.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.Sinks.ApplicationInsights.dll": {}
+        }
+      },
       "Serilog.Sinks.AzureApp/3.1.0": {
         "dependencies": {
           "Microsoft.Extensions.Logging.AzureAppServices": "3.1.11",
@@ -1285,6 +1317,24 @@
         },
         "compile": {
           "lib/netstandard2.0/Serilog.Sinks.File.dll": {}
+        }
+      },
+      "Serilog.Sinks.RollingFile/3.3.0": {
+        "dependencies": {
+          "Serilog.Sinks.File": "4.1.0",
+          "System.IO": "4.3.0",
+          "System.IO.FileSystem.Primitives": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Text.Encoding.Extensions": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Serilog.Sinks.RollingFile.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Serilog.Sinks.RollingFile.dll": {}
         }
       },
       "Swashbuckle.AspNetCore.Swagger/6.0.7": {
@@ -3752,6 +3802,13 @@
       "path": "humanizer.core/2.8.26",
       "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
     },
+    "Microsoft.ApplicationInsights/2.12.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4vZcVaxywAzfLm5mAc2/llaZQTzbCqu9KirxxI/t49AkZH5Qxf7JxuAMUuv2/6JEdOOkGDzpvdrrIlf6LkFGcg==",
+      "path": "microsoft.applicationinsights/2.12.0",
+      "hashPath": "microsoft.applicationinsights.2.12.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Hosting.Abstractions/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -4270,6 +4327,13 @@
       "path": "serilog.settings.configuration/3.1.0",
       "hashPath": "serilog.settings.configuration.3.1.0.nupkg.sha512"
     },
+    "Serilog.Sinks.ApplicationInsights/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Pq0gU1IU4NKxsGKbIzQHgeSXUSn+QaUitgzCecZ+zbJ3Q4ZUqJovSV2FwMe4fBBefIjc5gG5AMRgUUYKK+c+qQ==",
+      "path": "serilog.sinks.applicationinsights/3.1.0",
+      "hashPath": "serilog.sinks.applicationinsights.3.1.0.nupkg.sha512"
+    },
     "Serilog.Sinks.AzureApp/3.1.0": {
       "type": "package",
       "serviceable": true,
@@ -4297,6 +4361,13 @@
       "sha512": "sha512-U0b34w+ZikbqWEZ3ui7BdzxY/19zwrdhLtI3o6tfmLdD3oXxg7n2TZJjwCCTlKPgRuYic9CBWfrZevbb70mTaw==",
       "path": "serilog.sinks.file/4.1.0",
       "hashPath": "serilog.sinks.file.4.1.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.RollingFile/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2lT5X1r3GH4P0bRWJfhA7etGl8Q2Ipw9AACvtAHWRUSpYZ42NGVyHoVs2ALBZ/cAkkS+tA4jl80Zie144eLQPg==",
+      "path": "serilog.sinks.rollingfile/3.3.0",
+      "hashPath": "serilog.sinks.rollingfile.3.3.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore.Swagger/6.0.7": {
       "type": "package",

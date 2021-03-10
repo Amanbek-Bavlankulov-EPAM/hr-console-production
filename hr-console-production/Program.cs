@@ -12,11 +12,11 @@ namespace hr_console_production
             CreateHostBuilder(args).Build().Run();
 
             Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-            .Enrich.FromLogContext()
-            .WriteTo.Console()
-            .WriteTo.AzureApp()
-            .CreateLogger();
+               .MinimumLevel.Debug()
+               .MinimumLevel.Override("Microsoft", LogEventLevel.Verbose)
+               .Enrich.FromLogContext()
+               .WriteTo.RollingFile("log-{Date}.txt")
+               .CreateLogger();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

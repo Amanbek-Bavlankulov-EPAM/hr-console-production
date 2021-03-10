@@ -70,6 +70,10 @@
               "target": "Package",
               "version": "[3.0.1, )"
             },
+            "Serilog.Sinks.ApplicationInsights": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
             "Serilog.Sinks.AzureApp": {
               "target": "Package",
               "version": "[3.1.0, )"
@@ -77,6 +81,10 @@
             "Serilog.Sinks.Console": {
               "target": "Package",
               "version": "[3.1.1, )"
+            },
+            "Serilog.Sinks.RollingFile": {
+              "target": "Package",
+              "version": "[3.3.0, )"
             },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",

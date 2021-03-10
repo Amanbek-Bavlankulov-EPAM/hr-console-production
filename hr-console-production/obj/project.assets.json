@@ -11,6 +11,19 @@
           "lib/netstandard2.0/Humanizer.dll": {}
         }
       },
+      "Microsoft.ApplicationInsights/2.12.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "4.6.0",
+          "System.RunTime.InteropServices": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.ApplicationInsights.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.ApplicationInsights.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Hosting.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -1050,6 +1063,19 @@
           "lib/netstandard2.0/Serilog.Settings.Configuration.dll": {}
         }
       },
+      "Serilog.Sinks.ApplicationInsights/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.ApplicationInsights": "2.12.0",
+          "Serilog": "2.8.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Serilog.Sinks.ApplicationInsights.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Sinks.ApplicationInsights.dll": {}
+        }
+      },
       "Serilog.Sinks.AzureApp/3.1.0": {
         "type": "package",
         "dependencies": {
@@ -1103,6 +1129,22 @@
         },
         "runtime": {
           "lib/netstandard2.0/Serilog.Sinks.File.dll": {}
+        }
+      },
+      "Serilog.Sinks.RollingFile/3.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Serilog.Sinks.File": "3.2.0",
+          "System.IO": "4.1.0",
+          "System.IO.FileSystem.Primitives": "4.0.1",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.Encoding.Extensions": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.3/Serilog.Sinks.RollingFile.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Serilog.Sinks.RollingFile.dll": {}
         }
       },
       "Swashbuckle.AspNetCore.Swagger/6.0.7": {
@@ -2595,6 +2637,26 @@
         "logo.png"
       ]
     },
+    "Microsoft.ApplicationInsights/2.12.0": {
+      "sha512": "4vZcVaxywAzfLm5mAc2/llaZQTzbCqu9KirxxI/t49AkZH5Qxf7JxuAMUuv2/6JEdOOkGDzpvdrrIlf6LkFGcg==",
+      "type": "package",
+      "path": "microsoft.applicationinsights/2.12.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net45/Microsoft.ApplicationInsights.dll",
+        "lib/net45/Microsoft.ApplicationInsights.xml",
+        "lib/net46/Microsoft.ApplicationInsights.dll",
+        "lib/net46/Microsoft.ApplicationInsights.xml",
+        "lib/netstandard1.3/Microsoft.ApplicationInsights.dll",
+        "lib/netstandard1.3/Microsoft.ApplicationInsights.xml",
+        "lib/netstandard2.0/Microsoft.ApplicationInsights.dll",
+        "lib/netstandard2.0/Microsoft.ApplicationInsights.xml",
+        "microsoft.applicationinsights.2.12.0.nupkg.sha512",
+        "microsoft.applicationinsights.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Hosting.Abstractions/2.2.0": {
       "sha512": "ubycklv+ZY7Kutdwuy1W4upWcZ6VFR8WUXU7l7B2+mvbDBBPAcfpi+E+Y5GFe+Q157YfA3C49D2GCjAZc7Mobw==",
       "type": "package",
@@ -3996,6 +4058,25 @@
         "serilog.settings.configuration.nuspec"
       ]
     },
+    "Serilog.Sinks.ApplicationInsights/3.1.0": {
+      "sha512": "Pq0gU1IU4NKxsGKbIzQHgeSXUSn+QaUitgzCecZ+zbJ3Q4ZUqJovSV2FwMe4fBBefIjc5gG5AMRgUUYKK+c+qQ==",
+      "type": "package",
+      "path": "serilog.sinks.applicationinsights/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Serilog.Sinks.ApplicationInsights.dll",
+        "lib/net45/Serilog.Sinks.ApplicationInsights.xml",
+        "lib/netstandard1.3/Serilog.Sinks.ApplicationInsights.dll",
+        "lib/netstandard1.3/Serilog.Sinks.ApplicationInsights.xml",
+        "lib/netstandard1.6/Serilog.Sinks.ApplicationInsights.dll",
+        "lib/netstandard1.6/Serilog.Sinks.ApplicationInsights.xml",
+        "lib/netstandard2.0/Serilog.Sinks.ApplicationInsights.dll",
+        "lib/netstandard2.0/Serilog.Sinks.ApplicationInsights.xml",
+        "serilog.sinks.applicationinsights.3.1.0.nupkg.sha512",
+        "serilog.sinks.applicationinsights.nuspec"
+      ]
+    },
     "Serilog.Sinks.AzureApp/3.1.0": {
       "sha512": "kDY8IOUmfMyo4U9IuOaHdp7+RBulUBkemCNaJ+NzFPQYuvPacCn6b6bJzi2kcZ+l99OsYPeXj4luZbGBiIW+nQ==",
       "type": "package",
@@ -4065,6 +4146,21 @@
         "lib/netstandard2.0/Serilog.Sinks.File.xml",
         "serilog.sinks.file.4.1.0.nupkg.sha512",
         "serilog.sinks.file.nuspec"
+      ]
+    },
+    "Serilog.Sinks.RollingFile/3.3.0": {
+      "sha512": "2lT5X1r3GH4P0bRWJfhA7etGl8Q2Ipw9AACvtAHWRUSpYZ42NGVyHoVs2ALBZ/cAkkS+tA4jl80Zie144eLQPg==",
+      "type": "package",
+      "path": "serilog.sinks.rollingfile/3.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Serilog.Sinks.RollingFile.dll",
+        "lib/net45/Serilog.Sinks.RollingFile.xml",
+        "lib/netstandard1.3/Serilog.Sinks.RollingFile.dll",
+        "lib/netstandard1.3/Serilog.Sinks.RollingFile.xml",
+        "serilog.sinks.rollingfile.3.3.0.nupkg.sha512",
+        "serilog.sinks.rollingfile.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore.Swagger/6.0.7": {
@@ -8358,8 +8454,10 @@
       "Serilog >= 2.10.0",
       "Serilog.AspNetCore >= 4.0.0",
       "Serilog.Extensions.Logging >= 3.0.1",
+      "Serilog.Sinks.ApplicationInsights >= 3.1.0",
       "Serilog.Sinks.AzureApp >= 3.1.0",
       "Serilog.Sinks.Console >= 3.1.1",
+      "Serilog.Sinks.RollingFile >= 3.3.0",
       "Swashbuckle.AspNetCore.Swagger >= 6.0.7",
       "Swashbuckle.AspNetCore.SwaggerGen >= 6.0.7",
       "Swashbuckle.AspNetCore.SwaggerUI >= 6.0.7"
@@ -8434,6 +8532,10 @@
             "target": "Package",
             "version": "[3.0.1, )"
           },
+          "Serilog.Sinks.ApplicationInsights": {
+            "target": "Package",
+            "version": "[3.1.0, )"
+          },
           "Serilog.Sinks.AzureApp": {
             "target": "Package",
             "version": "[3.1.0, )"
@@ -8441,6 +8543,10 @@
           "Serilog.Sinks.Console": {
             "target": "Package",
             "version": "[3.1.1, )"
+          },
+          "Serilog.Sinks.RollingFile": {
+            "target": "Package",
+            "version": "[3.3.0, )"
           },
           "Swashbuckle.AspNetCore.Swagger": {
             "target": "Package",

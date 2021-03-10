@@ -153,7 +153,7 @@ namespace hr_console_production.Controllers
             ctx.SaveChanges();
         }
 
-        [HttpGet]
+        [HttpGet("GetException")]
         public IActionResult GetException()
         {
             logger.LogInformation("Throw exception.");

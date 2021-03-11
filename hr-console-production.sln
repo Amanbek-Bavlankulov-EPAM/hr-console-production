@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hr-console-production", "hr-console-production\hr-console-production.csproj", "{C87BC592-7644-4D5F-B55A-3793E48FC220}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hr-production-tests", "hr-production-tests\hr-production-tests.csproj", "{F962AD43-5905-4255-B741-D251F3B83037}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hr-production-tests", "hr-production-tests\hr-production-tests.csproj", "{6BCC17EA-2BE7-4FE5-B42E-6DE4F7539B98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{C87BC592-7644-4D5F-B55A-3793E48FC220}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C87BC592-7644-4D5F-B55A-3793E48FC220}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C87BC592-7644-4D5F-B55A-3793E48FC220}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F962AD43-5905-4255-B741-D251F3B83037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F962AD43-5905-4255-B741-D251F3B83037}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F962AD43-5905-4255-B741-D251F3B83037}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F962AD43-5905-4255-B741-D251F3B83037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BCC17EA-2BE7-4FE5-B42E-6DE4F7539B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BCC17EA-2BE7-4FE5-B42E-6DE4F7539B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BCC17EA-2BE7-4FE5-B42E-6DE4F7539B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BCC17EA-2BE7-4FE5-B42E-6DE4F7539B98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

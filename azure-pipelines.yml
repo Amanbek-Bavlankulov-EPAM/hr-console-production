@@ -46,3 +46,4 @@ steps:
       !**\xunit.runner.visualstudio.dotnetcore.testadapter.dll
     searchFolder: '$(System.DefaultWorkingDirectory)'
     codeCoverageEnabled: true
+- task: PublishBuildArtifacts@1

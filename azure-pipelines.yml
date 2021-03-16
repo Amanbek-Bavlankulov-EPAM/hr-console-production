@@ -38,7 +38,7 @@ steps:
   inputs:
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
-      **\bin\$(BuildConfiguration)\**\*tests*.dll
+      **\bin\$(BuildConfiguration)\net5.0\*tests*.dll
       !**\obj\**
       !**\xunit.runner.visualstudio.testadapter.dll
       !**\xunit.runner.visualstudio.dotnetcore.testadapter.dll

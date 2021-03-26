@@ -40,9 +40,7 @@ steps:
     codeCoverageEnabled: true
     diagnosticsEnabled: true
     collectDumpOn: 'always'
-    
-    variables:
-  buildConfiguration: Release
+
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
 
 # Install the latest version of the dotnet sdk

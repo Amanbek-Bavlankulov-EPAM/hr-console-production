@@ -41,9 +41,7 @@ steps:
     diagnosticsEnabled: true
     collectDumpOn: 'always'
 
-  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
-
-# Install the latest version of the dotnet sdk
+  # Install the latest version of the dotnet sdk
 - task: DotNetCoreInstaller@0
   displayName: 'Use .NET Core sdk 2.2.103'
   inputs:

@@ -78,5 +78,12 @@ steps:
 #   inputs:
 #     codeCoverageTool: Cobertura
 #     summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
-#     reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
+#     reportDirectory: '
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
+    pathToSources: '$(Build.SourcesDirectory)'
+    reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage''
+
 - task: PublishBuildArtifacts@1

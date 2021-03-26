@@ -41,27 +41,27 @@ steps:
     diagnosticsEnabled: true
     collectDumpOn: 'always'
 
-  # Install the latest version of the dotnet sdk
-- task: DotNetCoreInstaller@0
-  displayName: 'Use .NET Core sdk 2.2.103'
-  inputs:
-    version: 2.2.103
+#   # Install the latest version of the dotnet sdk
+# - task: DotNetCoreInstaller@0
+#   displayName: 'Use .NET Core sdk 2.2.103'
+#   inputs:
+#     version: 2.2.103
+# 
+# # build all projects
+# - task: DotNetCoreCLI@2
+#   displayName: dotnet build
+#   inputs:
+#     projects: 'src/**/*.csproj'
+#     arguments: --configuration $(buildConfiguration)
 
-# build all projects
-- task: DotNetCoreCLI@2
-  displayName: dotnet build
-  inputs:
-    projects: 'src/**/*.csproj'
-    arguments: --configuration $(buildConfiguration)
-
-# Run all tests with "/p:CollectCoverage=true /p:CoverletOutputFormat=cobertura" to generate the code coverage file
-- task: DotNetCoreCLI@2
-  displayName: dotnet test
-  inputs:
-    command: test
-    arguments: --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
-    projects: 'tests/**/*.csproj'
-    nobuild: true
+# # Run all tests with "/p:CollectCoverage=true /p:CoverletOutputFormat=cobertura" to generate the code coverage file
+# - task: DotNetCoreCLI@2
+#   displayName: dotnet test
+#   inputs:
+#     command: test
+#     arguments: --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
+#     projects: 'tests/**/*.csproj'
+#     nobuild: true
 
 # Generate the report using ReportGenerator (https://github.com/danielpalme/ReportGenerator)
 # First install the tool on the machine, then run it

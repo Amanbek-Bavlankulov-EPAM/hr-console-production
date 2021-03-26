@@ -45,7 +45,6 @@ steps:
   buildConfiguration: Release
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
 
-steps:
 # Install the latest version of the dotnet sdk
 - task: DotNetCoreInstaller@0
   displayName: 'Use .NET Core sdk 2.2.103'

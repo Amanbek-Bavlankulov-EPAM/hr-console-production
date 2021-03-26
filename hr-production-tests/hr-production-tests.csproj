@@ -25,10 +25,4 @@
   <ItemGroup>
     <ProjectReference Include="..\hr-console-production\hr-console-production.csproj" />
   </ItemGroup>
-	<Target Name="CopyDepsFiles">
-		<ItemGroup>
-			<DepsFilePaths Include="..\..\hr-console-production\bin\$(Configuration)\$(TargetFramework)\*.json" />
-		</ItemGroup>
-		<Copy SourceFiles="@(DepsFilePaths)" DestinationFolder="$(OutDir)" />
-	</Target>
 </Project>

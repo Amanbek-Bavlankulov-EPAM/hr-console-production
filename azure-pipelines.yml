@@ -40,11 +40,5 @@ steps:
     codeCoverageEnabled: true
     diagnosticsEnabled: true
     collectDumpOn: 'always'
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
-    pathToSources: '$(Build.SourcesDirectory)'
-    reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
-    failIfCoverageEmpty: true
+
 - task: PublishBuildArtifacts@1

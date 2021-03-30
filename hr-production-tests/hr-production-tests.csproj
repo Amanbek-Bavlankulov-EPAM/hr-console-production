@@ -30,4 +30,13 @@
   <ItemGroup>
     <ProjectReference Include="..\hr-console-production\hr-console-production.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="coverage.cobertura.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="coverage.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

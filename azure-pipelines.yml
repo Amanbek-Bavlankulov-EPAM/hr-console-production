@@ -46,4 +46,11 @@ steps:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '**\bin\$(buildConfiguration)\net5.0\*cobertura.xml'
     reportDirectory: '**\bin\$(buildConfiguration)\net5.0\'
+- task: AzureDevTestLabsCreateVM@3
+  inputs:
+    azureSubscription: 'Visual Studio Professional Subscription (e94871f6-4f7c-43c5-b99d-666960b844db)'
+    LabId: '/subscriptions/e94871f6-4f7c-43c5-b99d-666960b844db/resourcegroups/adventure-works-rg/providers/microsoft.devtestlab/labs/hr-production-lab'
+    VirtualMachineName: 'amanbekbavla001'
+    TemplateFile: 'amanbekbavla001.json'
+    FailOnArtifactError: true
 - task: PublishBuildArtifacts@1
